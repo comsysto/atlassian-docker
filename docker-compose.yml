@@ -1,7 +1,11 @@
-jira:
-  build: ./jira
+proxy:
+  build: ./proxy
   ports:
     - 8080:8080
+  container_name: proxy
+
+jira:
+  build: ./jira
   container_name: jira
 
 jira-db:
@@ -10,8 +14,6 @@ jira-db:
 
 confluence:
   build: ./confluence
-  ports:
-    - 8090:8090
   container_name: confluence
 
 confluence-db:
