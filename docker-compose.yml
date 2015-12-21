@@ -7,3 +7,13 @@ jira:
 jira-db:
   image: postgres
   container_name: jira-db
+
+confluence:
+  build: ./confluence
+  ports:
+    - 8090:8090
+  container_name: confluence
+
+confluence-db:
+  image: postgres
+  container_name: confluence-db
