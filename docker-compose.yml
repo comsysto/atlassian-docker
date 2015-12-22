@@ -1,23 +1,35 @@
 jira:
+  container_name: jira
   image: cptactionhank/atlassian-jira:7.0.5
   ports:
     - 8080:8080
-  container_name: jira
   links:
     - jira-db
 
 jira-db:
-  image: postgres
   container_name: jira-db
+  image: postgres
 
 confluence:
+  container_name: confluence
   image: cptactionhank/atlassian-confluence:5.9.2
   ports:
     - 8090:8090
-  container_name: confluence
   links:
     - confluence-db
 
 confluence-db:
-  image: postgres
   container_name: confluence-db
+  image: postgres
+
+bamboo:
+  container_name: bamboo
+  image: nkatsaros/atlassian-bamboo
+  ports:
+    - 8085:8085
+  links:
+    - bamboo-db
+
+bamboo-db:
+  container_name: bamboo-db
+  image: postgres
